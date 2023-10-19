@@ -1,3 +1,4 @@
+from ast import If
 from PySide6.QtCore import *
 
 from PySide6.QtWidgets import (
@@ -17,7 +18,11 @@ from PySide6.QtWidgets import (
     QRadioButton,
     QDateTimeEdit,
     QSlider,
-    QProgressBar
+    QProgressBar,
+    QDial,
+QLCDNumber,
+QTextEdit
+
 
 )
 
@@ -68,26 +73,54 @@ class VentanaPrincipal(QMainWindow):
         calendario = QDateTimeEdit(date.today(),self,calendarPopup=True)
         layout_formulario.addRow(QLabel("Fecha de nacimiento: "),calendario)
         
-        barra_deslizante = QProgressBar()
-        barra_deslizante.setMinimum(1)
-        barra_deslizante.setMaximum(100)
-        barra_deslizante.setValue(33)
+        progress_bar = QProgressBar()
+        progress_bar.setMinimum(1)
+        progress_bar.setMaximum(100)
+        progress_bar.setValue(33)
+ 
       
-        layout_formulario.addRow(QLabel("QProgressbar:"),barra_deslizante)
+        layout_formulario.addRow(QLabel("QProgressbar:"),progress_bar)
 
 
 
-        slider = QSlider()
+        slider = QSlider(Qt.Orientation.Horizontal)
         slider.setMinimum(1)
         slider.setMaximum(100)
-        slider.setValue(100)
-        slider.orientation(Qt.Orientation)
+        slider.setValue(50)
+       # slider.orientation(Qt.Orientation)
+        slider.setTickInterval(2)
         layout_formulario.addRow(QLabel("QSlider:"),slider)
         
+        qdial = QDial()
+        qdial.setMinimum(0)
+        qdial.setMaximum(100)
+        qdial.setValue(40)
+        qdial.setRange(0,100)
+        qdial.setWrapping(True)
+        qdial.setNotchesVisible(True)
+        lcd = QLCDNumber(qdial)
+        
+
+        qdial.valueChanged.connect(lcd.display)
+        layout_formulario.addRow(QLabel("Qdial: "),qdial)
+        layout_formulario.addRow(QLabel("Contador: "),lcd)
+     
+
+        layout_formulario.addRow(QLabel("QTextEdit"))
+        qtextedit = QTextEdit()
+        qtextedit.setText("Texto por default")
+        layout_formulario.addRow(qtextedit)
+
+        boton = QPushButton("Boton")
+        boton.setFixedSize(100,60)
+        layout_formulario.addRow(boton)
+
 
 app = QApplication([])
 
 ventana = VentanaPrincipal()
 ventana.show()
+
+
 
 app.exec()

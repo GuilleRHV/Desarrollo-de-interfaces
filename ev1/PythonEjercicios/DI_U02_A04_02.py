@@ -12,8 +12,9 @@ class VentanaPrincipal(QMainWindow):
             "Ventana principal con menú y barra de herramientas")
         barra_menus = self.menuBar()
         menu = barra_menus.addMenu("&Menu")
+        rutaimagen = os.path.expandvars("$HOME/Imágenes/console.png")
         ruta_a_icono = os.path.join(os.path.dirname(
-            __file__), "images/console.png")
+            __file__), "images/console.jpeg")
         # Añadimos a la acción, un icono
         accion = QAction(QIcon(ruta_a_icono), "Imprimir por consola", self)
         accion.setWhatsThis(

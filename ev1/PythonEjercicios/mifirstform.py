@@ -11,6 +11,7 @@ from PySide6.QtWidgets import (
     QSpinBox,
     QDoubleSpinBox,
     QPushButton,
+    QTableWidget,
     QComboBox,
     QCheckBox,
     QGroupBox,
@@ -20,6 +21,7 @@ from PySide6.QtWidgets import (
     QSlider,
     QProgressBar,
     QDial,
+    QTableWidgetItem,
 QLCDNumber,
 QTextEdit
 
@@ -114,6 +116,18 @@ class VentanaPrincipal(QMainWindow):
         boton = QPushButton("Boton")
         boton.setFixedSize(100,60)
         layout_formulario.addRow(boton)
+
+        tabla = QTableWidget(8,7,self)
+        tabla.setHorizontalHeaderLabels("LMXJVSD")
+        tabla.setItem(0,0,QTableWidgetItem("Java"))
+        tabla.setItem(0,1,QTableWidgetItem("Interfaces"))
+        tabla.setItem(0,2,QTableWidgetItem("EIE"))
+        tabla.setItem(1,0,QTableWidgetItem("Ingles"))
+        tabla.setItem(0,0,QTableWidgetItem("PSP"))
+        tabla.setItem(0,0,QTableWidgetItem("Multi"))
+        #layout_vertical = QVBoxLayout()
+       
+        layout_formulario.addRow(tabla)
 
 
 app = QApplication([])

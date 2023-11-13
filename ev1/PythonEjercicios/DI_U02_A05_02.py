@@ -11,11 +11,12 @@ class DialogoPersonalizado(QDialog):
         self.setWindowTitle("Dialogo personalizado")
 
         # Definimos los botones Ok i Cancel en nuestra variable
-        botones = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+        botones = QDialogButtonBox.Ok | QDialogButtonBox.Cancel 
 
         # Pasamos la variable de botones al constructor de QDialogButtonBox
         self.caja_botones = QDialogButtonBox(botones)
         # Conectamos las señales de los botones con las ranuras de QDialog
+        
         self.caja_botones.accepted.connect(self.accept)
         self.caja_botones.rejected.connect(self.reject)
 

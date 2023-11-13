@@ -20,10 +20,10 @@ class Hilo(QThread):
     # Mientras no se cancele, el hilo emitirá una señal con un
     # entero entre 0 i 10 cada 0,3 segundos
     def run(self):
-        for i in range(11):
+        for i in range(22):
             if not self.cancelado:
                 self.señal.emit(i)
-                time.sleep(0.5)
+                time.sleep(0.3)
             else:
                 break
 

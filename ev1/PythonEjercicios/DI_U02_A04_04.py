@@ -48,8 +48,9 @@ class VentanaPrincipal(QMainWindow):
         self.setCentralWidget(QLabel("Componente principal"))
 
     def imprimir_por_consola(self):
-        print("Acción lanzada a través del menú, del atajo " +
-              " o de la barra de herramientas")
+    
+            print("Acción lanzada a través del menú, del atajo " +
+                " o de la barra de herramientas")
 
 
 if __name__ == "__main__":
@@ -59,3 +60,5 @@ if __name__ == "__main__":
     ventana1.show()
 
     app.exec()
+
+

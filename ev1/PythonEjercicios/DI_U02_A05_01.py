@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QApplication, QDialog, QMainWindow, QPushButton
+from PySide6.QtWidgets import QApplication, QDialog, QMainWindow, QPushButton,QDialogButtonBox
 
 
 class VentanaPrincipal(QMainWindow):
@@ -26,3 +26,5 @@ ventana_principal = VentanaPrincipal()
 ventana_principal.show()
 
 app.exec()
+
+

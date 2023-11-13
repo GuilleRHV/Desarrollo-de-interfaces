@@ -12,6 +12,7 @@ class VentanaPrincipal(QMainWindow):
             "Ventana principal con menú y barra de herramientas")
         barra_menus = self.menuBar()
         menu = barra_menus.addMenu("&Menu")
+        otromenu = barra_menus.addMenu("&OtroMenu")
         rutaimagen = os.path.expandvars("$HOME/Imágenes/console.png")
         ruta_a_icono = os.path.join(os.path.dirname(
             __file__), "images/console.jpeg")

@@ -1,0 +1,70 @@
+package com.example.examen;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity {
+    private ImageView imageView1, imageView2, imageView3, imageView4;
+    private Button button;
+    private int[][] imageArrays;
+    private Random random;
+    String poke;
+    int test = R.drawable.bulba;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        imageView1 = (ImageView) findViewById(R.id.imageView1);
+        imageView2 = (ImageView) findViewById(R.id.imageView2);
+        imageView3 = (ImageView) findViewById(R.id.imageView3);
+        imageView4 = (ImageView) findViewById(R.id.imageView4);
+        button = (Button)findViewById(R.id.button);
+        random = new Random();
+        poke = "bulba";
+
+        imageArrays = new int[3][3];
+        imageArrays[0] = new int[]{R.drawable.bulba, R.drawable.ivy, R.drawable.veno};
+        imageArrays[1] = new int[]{R.drawable.squirtle, R.drawable.war, R.drawable.blasto};
+        imageArrays[2] = new int[]{R.drawable.cahr, R.drawable.leon, R.drawable.zard};
+
+        imageView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                test = imageArrays[0][random.nextInt(3)];
+                imageView4.setImageResource(test);
+            }
+        });
+
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                test = imageArrays[1][random.nextInt(3)];
+                imageView4.setImageResource(test);
+            }
+        });
+
+        imageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                test = imageArrays[2][random.nextInt(3)];
+                imageView4.setImageResource(test);
+            }
+        });
+    }
+
+    public void magia(View view)
+    {
+        Intent intent = new Intent(this, imagen.class);
+        intent.putExtra("myint",test);
+        startActivity(intent);
+    }
+}
